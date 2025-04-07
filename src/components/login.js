@@ -1,13 +1,25 @@
 import { Component } from "react";
 
-class Login extends Component{
+import { TextField,Button } from "@mui/material";
+import { Login } from "@mui/icons-material"
+
+class StdLogin extends Component{
     render(){
         return(
-            <>
-                <p><bold>login page</bold></p>
-            </>
+            <div>
+                <center>
+                    <h2>LOGIN</h2>
+                        <form>
+                            <TextField label="Email" color="secondary" variant="outlined"/><br/>
+                            <br/>
+                            <TextField label="password" color="secondary" variant="outlined" /><br/>
+                            <br/>
+                            <Button variant="outlined" startIcon={<Login />}>LOGIN</Button>
+                        </form>
+                </center>
+            </div>
             
         );
     }
 }
-export default Login;
+export default StdLogin;

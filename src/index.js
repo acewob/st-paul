@@ -1,25 +1,28 @@
 import React, { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+//import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {createBrowserRouter,RouterProvider} from "react-router-dom";
 
+import DashboardLayout from "./components/dashboard";
+import StdLogin from './components/login';
 import Layout from './components/layout';
-import Login from './components/login';
 import Register from './components/register';
-
+import SchoolAppBar from './components/layout';
 const router=createBrowserRouter([
-  {path:'/',element:<App/>},
+  {path:'/',element:<DashboardLayout/>},
   {path:'/dashboard',element:<Layout/>},
-  { path:'/login',element:<Login/> },
+  { path:'/login',element:<StdLogin/> },
   { path:'/register', element:<Register/>}
 ]);
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <StrictMode>
+      <SchoolAppBar/>
       <RouterProvider router={router}/>
     </StrictMode>
   </React.StrictMode>
