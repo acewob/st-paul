@@ -1,30 +1,42 @@
-import { Component } from "react";
-import {Grid} from "@mui/material";
+import { useState } from "react";
+import {Box,Button, Grid, TextField, Paper, Avatar} from "@mui/material";
+import { LockOutline} from "@mui/icons-material";
 //import {Login } from "@mui/icons-material";
-import { styled } from '@mui/material/styles';
-import Paper from '@mui/material/Paper';
+//import { styled } from '@mui/material/styles';
+//import Paper from '@mui/material/Paper';
 
-class Register extends Component{
-    render(){
+function Register(){
+        const [Password,setPass]=useState();
+        const [email,setEmail]=useState();
+
+        const paperStyle={Padding:20,height:"70vh",width:280, margin:"20px auto"}
+        const avatarStyle={backgroundColor:"#ffebee",margin:"30px auto"}
+        const textFieldStyle={margin:"5px"}
         return(
         <div>
             <center>
-                <Grid container spacing={3}>
-                    <Grid size={{xs:4,md:3}}>
-                        <item className="lf">grid 1</item>
+                    <Grid >
+                            <Paper elevation={10} style={paperStyle}>
+                                <Grid align='center'>
+                                    <Avatar style={avatarStyle}><LockOutline/></Avatar>
+                                    <h2>Sign up</h2>
+                                </Grid>
+                                <Grid>
+                                <Box component="form" sx={{ 
+                                    '& > :not(style)': { m: 1, width: '25ch' } }}
+                                    noValidate
+                                    autoComplete="off"
+                                >
+                                
+                                    <TextField label="Email" value={email} placeholder="Enter Email" variant="standard" fullWidth required/>
+                                    <TextField type="password" label="Password" value={Password} placeholder="Enter Password" variant="standard" fullWidth required/>
+                                    <Button variant="contained" color="primary" type="sumbit" value="Register">Register</Button>
+                                </Box>
+                                </Grid>
+                            </Paper>
                     </Grid>
-                    <Grid size={{xs:4,md:6}}>
-                        <item><p>In order to create a grid layout, you need a container. Use the container prop to create a grid container that wraps the grid items (the Grid is always an item).
-
-Column widths are integer values between 1 and 12. For example, an item with size={6} occupies half of the grid container's width.</p></item>
-                    </Grid>
-                    <Grid size={{xs:4,md:3}}>
-                        <item>grid 1</item>
-                    </Grid>
-                </Grid>
             </center>
         </div>
         );
     }
-}
 export default Register;
